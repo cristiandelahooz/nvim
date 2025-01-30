@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
-vim.keymap.set("i", "jj", "<Esc>")
+vim.keymap.set("i", "jj", "<Esc>:w<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -66,3 +66,24 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 --[[vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)]]
+
+function RunCurrentFile()
+    local filetype = vim.bo.filetype
+    local filename = vim.fn.expand("%")
+    local output_file = "output"
+
+    local commands = {
+        javascript = "node " .. filename,
+        typescript = "tsx " .. filename,
+        c = "gcc " .. filename .. " -o " .. output_file .. " && ./" .. output_file .. " && rm " .. output_file,
+        go = "go run " .. filename
+    }
+
+    if commands[filetype] then
+        vim.cmd("!" .. commands[filetype]) -- Run program
+    else
+        print("No execution command set for filetype: " .. filetype)
+    end
+end
+
+vim.api.nvim_set_keymap("n", "<leader>r", ":lua RunCurrentFile()<CR>", { noremap = true, silent = true })
