@@ -16,10 +16,10 @@ vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
 vim.keymap.set("x", "<leader>pf", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
+vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d")
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -76,11 +76,14 @@ function RunCurrentFile()
         javascript = "node " .. filename,
         typescript = "tsx " .. filename,
         c = "gcc " .. filename .. " -o " .. output_file .. " && ./" .. output_file .. " && rm " .. output_file,
-        go = "go run " .. filename
+        go = "go run " .. filename,
+        zsh = "./" .. filename,
+        bash = "./" .. filename,
+        haskell = "ghc " .. filename .. " -o " .. output_file .. "&& ./" .. output_file .. " && setopt extendedglob && rm -- ^*.hs"
     }
 
     if commands[filetype] then
-        vim.cmd("!" .. commands[filetype]) -- Run program
+        vim.cmd(":term " .. commands[filetype]) -- Run program
     else
         print("No execution command set for filetype: " .. filetype)
     end
