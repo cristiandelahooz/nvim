@@ -35,6 +35,7 @@ return {
                 "rust_analyzer",
                 "gopls",
             },
+            automatic_installation = true,
             handlers = {
                 function(server_name) -- default handler (optional)
                     require("lspconfig")[server_name].setup {
@@ -98,7 +99,7 @@ return {
         })
 
         vim.diagnostic.config({
-            -- update_in_insert = true,
+            update_in_insert = true,
             float = {
                 focusable = false,
                 style = "minimal",
