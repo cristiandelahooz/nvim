@@ -59,8 +59,6 @@ vim.keymap.set(
     "oif err != nil {<CR>}<Esc>O.logger.Error(\"error\", \"error\", err)<Esc>F.;i"
 )
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
-vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 --[[vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
@@ -78,7 +76,8 @@ function RunCurrentFile()
         go = "go run " .. filename,
         zsh = "./" .. filename,
         bash = "./" .. filename,
-        haskell = "ghc " .. filename .. " -o " .. output_file .. "&& ./" .. output_file .. " && setopt extendedglob && rm -- ^*.hs"
+        haskell = "ghc " .. filename .. " -o " .. output_file .. "&& ./" .. output_file .. " && setopt extendedglob && rm -- ^*.hs",
+        java = "gd run"
     }
 
     if commands[filetype] then
