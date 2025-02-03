@@ -35,31 +35,30 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set(
-    "n",
-    "<leader>ee",
-    "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
-)
+local function set_keymaps_for_ft()
+    local ft = vim.bo.filetype
 
-vim.keymap.set(
-    "n",
-    "<leader>ea",
-    "oassert.NoError(err, \"\")<Esc>F\";a"
-)
+    if ft == "java" then
+        -- Manejo de excepciones en Java
+        vim.keymap.set("n", "<leader>ee", "otry {<CR>} catch (Exception e) {<CR>throw new RuntimeException(e);<CR>}<Esc>O", { buffer = true })
+        vim.keymap.set("n", "<leader>el", "otry {<CR>} catch (Exception e) {<CR>logger.severe(\"Error: \" + e.getMessage());<CR>}<Esc>O", { buffer = true })
+        vim.keymap.set("n", "<leader>ea", "oassert condition : \"Error: \" + e.getMessage();<Esc>F\";a", { buffer = true })
+        vim.keymap.set("n", "<leader>ef", "otry {<CR>} catch (Exception e) {<CR>System.err.println(\"Error: \" + e.getMessage());<CR>}<Esc>O", { buffer = true })
 
-vim.keymap.set(
-    "n",
-    "<leader>ef",
-    "oif err != nil {<CR>}<Esc>Olog.Fatalf(\"error: %s\\n\", err.Error())<Esc>jj"
-)
+    elseif ft == "go" then
+        -- Manejo de errores en Go
+        vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { buffer = true })
+        vim.keymap.set("n", "<leader>ea", "oassert.NoError(err, \"\")<Esc>F\";a", { buffer = true })
+        vim.keymap.set("n", "<leader>ef", "oif err != nil {<CR>}<Esc>Olog.Fatalf(\"error: %s\\n\", err.Error())<Esc>jj", { buffer = true })
+        vim.keymap.set("n", "<leader>el", "oif err != nil {<CR>}<Esc>O.logger.Error(\"error\", \"error\", err)<Esc>F.;i", { buffer = true })
+    end
+end
 
-vim.keymap.set(
-    "n",
-    "<leader>el",
-    "oif err != nil {<CR>}<Esc>O.logger.Error(\"error\", \"error\", err)<Esc>F.;i"
-)
-
-
+-- Execute when open a buffer
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*",
+    callback = set_keymaps_for_ft
+})
 --[[vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)]]
