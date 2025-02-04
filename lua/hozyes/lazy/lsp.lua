@@ -34,6 +34,7 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "gopls",
+                "biome"
             },
             automatic_installation = true,
             handlers = {
