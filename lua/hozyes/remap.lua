@@ -6,8 +6,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set({ "n", "v"}, "<leader>ee",":Sex!<CR>")
-vim.keymap.set({ "n", "v"}, "<leader>E",":Ex<CR>")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
@@ -61,9 +59,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
     pattern = "*",
     callback = set_keymaps_for_ft
 })
---[[vim.keymap.set("n", "<leader><leader>", function()
+
+vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
-end)]]
+end)
 
 function RunCurrentFile()
     local filetype = vim.bo.filetype
