@@ -62,7 +62,7 @@ local config = {
     settings = {
         java = {
             -- TODO Replace this with the absolute path to your main java version (JDK 17 or higher)
-            home = "/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk",
+            home = "/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home/",
             eclipse = {
                 downloadSources = true,
             },
@@ -73,7 +73,7 @@ local config = {
                 runtimes = {
                     {
                         name = "OpenJDK",
-                        path = "/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/",
+                        path = "/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home/",
                     },
                 },
             },
