@@ -29,6 +29,9 @@ return {
 			cmp_lsp.default_capabilities())
 
 		require("fidget").setup({})
+        require("lspconfig").hls.setup({
+            cmd = { "/Users/saratrasv/.ghcup/hls/2.9.0.1/bin/haskell-language-server-wrapper"}
+        })
 		require("mason").setup()
 		require("mason-tool-installer").setup({
 			ensure_installed = {
