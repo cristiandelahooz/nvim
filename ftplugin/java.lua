@@ -62,7 +62,7 @@ local config = {
     settings = {
         java = {
             -- TODO Replace this with the absolute path to your main java version (JDK 17 or higher)
-            home = "/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home/",
+            home = "/Users/saratrasv/.sdkman/candidates/java/21.0.2-open/",
             eclipse = {
                 downloadSources = true,
             },
@@ -72,8 +72,8 @@ local config = {
                 -- The runtime name parameters need to match specific Java execution environments.  See https://github.com/tamago324/nlsp-settings.nvim/blob/2a52e793d4f293c0e1d61ee5794e3ff62bfbbb5d/schemas/_generated/jdtls.json#L317-L334
                 runtimes = {
                     {
-                        name = "OpenJDK",
-                        path = "/Library/Java/JavaVirtualMachines/amazon-corretto-21.jdk/Contents/Home/",
+                        name = "JavaSE-21",
+                        path = "/Users/saratrasv/.sdkman/candidates/java/21.0.2-open/",
                     },
                 },
             },
