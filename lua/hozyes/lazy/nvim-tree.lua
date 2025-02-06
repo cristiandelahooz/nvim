@@ -19,7 +19,7 @@ return {
     -- Recommended settings to disable default netrw file explorer
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
-    vim.keymap.set("n", "<leader>B", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>w", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
     require("nvim-tree").setup(opts)
   end
 }
