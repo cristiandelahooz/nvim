@@ -23,6 +23,12 @@ vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d")
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
+-- Tab management
+vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open a new tab
+vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close a tab
+vim.keymap.set("n", "<leader>tn", ":tabn<CR>") -- next tab
+vim.keymap.set("n", "<leader>tp", ":tabp<CR>") -- previous tab
+
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
