@@ -5,7 +5,7 @@ vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
+vim.opt.tabstop = 2
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
@@ -36,4 +36,3 @@ vim.opt.colorcolumn = "80"
 vim.o.timeout = true       -- Habilita el tiempo de espera
 vim.o.timeoutlen = 300 -- Reduce el tiempo de espera a 200 ms (ajústalo según tu preferencia)
 vim.o.ttimeoutlen = 0     -- Tiempo de espera para secuencias de escape
-vim.o.guifont = "JetBrainsMono Nerd Font Mono:h12"
