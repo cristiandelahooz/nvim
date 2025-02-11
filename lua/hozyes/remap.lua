@@ -23,7 +23,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d")
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
--- Tab management
+-- [[ Tab management ]]
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open a new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close a tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>") -- next tab
@@ -38,7 +38,13 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
--- This is only for java
+-- [[ Navigate panes better ]]
+vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
+vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
+vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
+vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
+
+-- [[ Java ]]
 vim.keymap.set('n', '<leader>ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 vim.keymap.set('n', '<leader>gg', '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', '<leader>gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
@@ -77,6 +83,7 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+-- [[ RUN ]]
 function RunCurrentFile()
     local filetype = vim.bo.filetype
     local filename = vim.fn.expand("%")
