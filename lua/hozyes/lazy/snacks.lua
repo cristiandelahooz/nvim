@@ -22,7 +22,6 @@ return {
         ]],
       },
     },
-    indent = { enabled = true },
     input = { enabled = true },
     git = { enabled = true },
     picker = { enabled = true },
