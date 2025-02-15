@@ -96,7 +96,7 @@ function RunCurrentFile()
         go = "go run " .. filename,
         zsh = "./" .. filename,
         bash = "./" .. filename,
-        haskell = "ghc " .. filename .. " -o " .. output_file .. "&& ./" .. output_file .. " && setopt extendedglob && rm -- ^*.hs",
+        haskell = "ghc " .. filename .. " -o " .. output_file .. "&& ./" .. output_file .. "&& rm ./*{.o,.hi,output}",
         java = "gd run"
     }
 
