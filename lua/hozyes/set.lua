@@ -1,16 +1,15 @@
---theprimeagen
-
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
 vim.opt.tabstop = 2
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
+vim.opt.autoindent = true
 
 vim.opt.wrap = false
 
@@ -25,6 +24,9 @@ vim.opt.incsearch = true
 vim.g.netrw_liststyle = 3
 vim.g.netrw_banner= 0
 
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 12
@@ -35,7 +37,6 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
---My own
 vim.o.timeout = true       -- Habilita el tiempo de espera
 vim.o.timeoutlen = 300 -- Reduce el tiempo de espera a 200 ms (ajústalo según tu preferencia)
 vim.o.ttimeoutlen = 0     -- Tiempo de espera para secuencias de escape
