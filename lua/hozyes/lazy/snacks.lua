@@ -18,7 +18,7 @@ return {
      █████████  ███    █████████████ █████ ██████████████   
     █████████ ██████████ █████████ █████ █████ ████ █████   
   ███████████ ███    ███ █████████ █████ █████ ████ █████  
- ██████  █████████████████████ ████ █████ █████ ████ ██████ 
+ ██████  █████████████████████ ████ █████ █████ ████ ██████ 
         ]],
       },
     },
@@ -31,10 +31,8 @@ return {
     words = { enabled = true },
   },
   keys = {
-    { "<leader>sf",       function() Snacks.scratch() end,            desc = "Toggle Scratch Buffer" },
-    { "<leader>S",        function() Snacks.scratch.select() end,     desc = "Select Scratch Buffer" },
     { "<leader><leader>", function() Snacks.picker.recent() end,      desc = "Recent Files" },
-    { "<leader>fb",       function() Snacks.picker.buffers() end,     desc = "Buffers" },
-    { "<leader>fg",       function() Snacks.picker.grep() end,        desc = "Grep Files" },
+    { "<leader>pb",       function() Snacks.picker.buffers() end,     desc = "Buffers" },
+    { "<leader>ps",       function() Snacks.picker.grep() end,        desc = "Grep Files" },
   }
 }
