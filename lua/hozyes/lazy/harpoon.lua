@@ -15,8 +15,9 @@ return {
         keymap.set("n", "<leader>a", mark.add_file)
         keymap.set("n", "<leader>E", ui.toggle_quick_menu)
 
-        keymap.set("n", "<c-j>", function() ui.nav_file(1) end)
-        keymap.set("n", "<c-k>", function() ui.nav_file(2) end)
-        keymap.set("n", "<c-l>", function() ui.nav_file(3) end)
+        keymap.set("n", "<c-h>", function() ui.nav_file(1) end)
+        keymap.set("n", "<c-j>", function() ui.nav_file(2) end)
+        keymap.set("n", "<c-k>", function() ui.nav_file(3) end)
+        keymap.set("n", "<c-l>", function() ui.nav_file(4) end)
     end
 }
