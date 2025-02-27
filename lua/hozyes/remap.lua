@@ -30,24 +30,19 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- [[ Tab management ]]
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>")   -- open a new tab
-vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close a tab
-vim.keymap.set("n", "<leader>tn", ":tabn<CR>")     -- next tab
-vim.keymap.set("n", "<leader>tp", ":tabp<CR>")     -- previous tab
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>") -- close a tab
+vim.keymap.set("n", "<leader><Tab>", ":tabn<CR>")     -- next tab
+vim.keymap.set("n", "<leader><s-Tab>", ":tabp<CR>")     -- previous tab
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-
 -- [[ Navigate panes better ]]
-vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
-vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
-vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
-vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
+vim.keymap.set('n', '<M-k>', ':wincmd k<CR>')
+vim.keymap.set('n', '<M-j>', ':wincmd j<CR>')
+vim.keymap.set('n', '<M-h>', ':wincmd h<CR>')
+vim.keymap.set('n', '<M-l>', ':wincmd l<CR>')
 
 -- [[ Java ]]
 vim.keymap.set('n', '<leader>ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
@@ -56,6 +51,7 @@ vim.keymap.set('n', '<leader>gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 vim.keymap.set('n', '<leader>gn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 vim.keymap.set('n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
+-- [[ buffer management ]]
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
