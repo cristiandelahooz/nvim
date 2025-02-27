@@ -1,4 +1,6 @@
 vim.g.mapleader = " "
+
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("i", "qj", "<Esc>:w<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -24,10 +26,10 @@ vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- [[ Tab management ]]
-vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open a new tab
+vim.keymap.set("n", "<leader>to", ":tabnew<CR>")   -- open a new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close a tab
-vim.keymap.set("n", "<leader>tn", ":tabn<CR>") -- next tab
-vim.keymap.set("n", "<leader>tp", ":tabp<CR>") -- previous tab
+vim.keymap.set("n", "<leader>tn", ":tabn<CR>")     -- next tab
+vim.keymap.set("n", "<leader>tp", ":tabp<CR>")     -- previous tab
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
@@ -59,17 +61,24 @@ local function set_keymaps_for_ft()
 
     if ft == "java" then
         -- Manejo de excepciones en Java
-        vim.keymap.set("n", "<leader>ee", "otry {<CR>} catch (Exception e) {<CR>throw new RuntimeException(e);<CR>}<Esc>O", { buffer = true })
-        vim.keymap.set("n", "<leader>el", "otry {<CR>} catch (Exception e) {<CR>logger.severe(\"Error: \" + e.getMessage());<CR>}<Esc>O", { buffer = true })
-        vim.keymap.set("n", "<leader>ea", "oassert condition : \"Error: \" + e.getMessage();<Esc>F\";a", { buffer = true })
-        vim.keymap.set("n", "<leader>ef", "otry {<CR>} catch (Exception e) {<CR>System.err.println(\"Error: \" + e.getMessage());<CR>}<Esc>O", { buffer = true })
-
+        vim.keymap.set("n", "<leader>ee",
+            "otry {<CR>} catch (Exception e) {<CR>throw new RuntimeException(e);<CR>}<Esc>O", { buffer = true })
+        vim.keymap.set("n", "<leader>el",
+            "otry {<CR>} catch (Exception e) {<CR>logger.severe(\"Error: \" + e.getMessage());<CR>}<Esc>O",
+            { buffer = true })
+        vim.keymap.set("n", "<leader>ea", "oassert condition : \"Error: \" + e.getMessage();<Esc>F\";a",
+            { buffer = true })
+        vim.keymap.set("n", "<leader>ef",
+            "otry {<CR>} catch (Exception e) {<CR>System.err.println(\"Error: \" + e.getMessage());<CR>}<Esc>O",
+            { buffer = true })
     elseif ft == "go" then
         -- Manejo de errores en Go
         vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>", { buffer = true })
         vim.keymap.set("n", "<leader>ea", "oassert.NoError(err, \"\")<Esc>F\";a", { buffer = true })
-        vim.keymap.set("n", "<leader>ef", "oif err != nil {<CR>}<Esc>Olog.Fatalf(\"error: %s\\n\", err.Error())<Esc>jj", { buffer = true })
-        vim.keymap.set("n", "<leader>el", "oif err != nil {<CR>}<Esc>O.logger.Error(\"error\", \"error\", err)<Esc>F.;i", { buffer = true })
+        vim.keymap.set("n", "<leader>ef", "oif err != nil {<CR>}<Esc>Olog.Fatalf(\"error: %s\\n\", err.Error())<Esc>jj",
+            { buffer = true })
+        vim.keymap.set("n", "<leader>el", "oif err != nil {<CR>}<Esc>O.logger.Error(\"error\", \"error\", err)<Esc>F.;i",
+            { buffer = true })
     end
 end
 
