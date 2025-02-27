@@ -13,6 +13,9 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
 
+--{{ select all text in the buffer }}
+vim.keymap.set("n", "<C-a>", "ggVG")
+
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
