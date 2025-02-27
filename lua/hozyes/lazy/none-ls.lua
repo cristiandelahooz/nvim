@@ -8,6 +8,8 @@ return {
       sources = {
         -- Biome como formateador
         null_ls.builtins.formatting.biome,
+        --java formatter
+        null_ls.builtins.formatting.google_java_format,
       },
     })
   end,
