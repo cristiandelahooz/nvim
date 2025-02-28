@@ -4,6 +4,7 @@ local home = vim.env.HOME -- Get the home directory
 local jdtls = require("jdtls")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = home .. "/jdtls-workspace/" .. project_name
+local JAVA_HOME = os.getenv("JAVA_HOME")
 
 local system_os = ""
 
@@ -62,7 +63,7 @@ local config = {
     settings = {
         java = {
             -- TODO Replace this with the absolute path to your main java version (JDK 17 or higher)
-            home = "/Users/saratrasv/.sdkman/candidates/java/21.0.2-open/",
+            home = JAVA_HOME,
             eclipse = {
                 downloadSources = true,
             },
@@ -73,7 +74,7 @@ local config = {
                 runtimes = {
                     {
                         name = "JavaSE-21",
-                        path = "/Users/saratrasv/.sdkman/candidates/java/21.0.2-open/",
+                        path = JAVA_HOME,
                     },
                 },
             },
