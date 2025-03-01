@@ -91,14 +91,8 @@ local config = {
                 includeDecompiledSources = true,
             },
             signatureHelp = { enabled = true },
-            format = {
-                enabled = true,
-                -- Formatting works by default, but you can refer to a specific file/URL if you choose
-                -- settings = {
-                --   url = "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml",
-                --   profile = "GoogleStyle",
-                -- },
-            },
+            ["java.format.settings.url"] = home .. "/.utils/neovim-jdtls/intellij-java-google-style.xml",
+            ["java.format.settings.profile"] = "GoogleStyle",
             completion = {
                 favoriteStaticMembers = {
                     "org.hamcrest.MatcherAssert.assertThat",
