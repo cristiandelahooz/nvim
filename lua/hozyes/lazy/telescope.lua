@@ -1,6 +1,6 @@
 return {
     "nvim-telescope/telescope.nvim",
-
+    lazy = true,
     tag = "0.1.5",
 
     dependencies = {
@@ -11,19 +11,19 @@ return {
         require('telescope').setup({
             defaults = {
                 initial_mode = "normal",
-               file_ignore_patterns = {
-                     ".git/",
-                     "node_modules/",
-                     "vendor/",
-                     "target/",
-                     "dist/",
-                     "build/",
-                     "deps/",
-                     "out/",
-                     "tmp/",
-                     ".*%.swp$",
+                file_ignore_patterns = {
+                    ".git/",
+                    "node_modules/",
+                    "vendor/",
+                    "target/",
+                    "dist/",
+                    "build/",
+                    "deps/",
+                    "out/",
+                    "tmp/",
+                    ".*%.swp$",
                     ".*%.class$",
-            },
+                },
             },
         })
 
