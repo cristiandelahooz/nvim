@@ -46,7 +46,7 @@ return {
                 "biome",
                 "jdtls",
                 "ts_ls",
-                "groovyls",
+                "gradle_ls",
                 "hls",
             },
             automatic_installation = true,
@@ -64,6 +64,11 @@ return {
                         cmd = { "/Users/saratrasv/.ghcup/hls/2.9.0.1/bin/haskell-language-server-wrapper", "--lsp" },
                         filetypes = { "haskell", "lhaskell", "cabal" },
                         root_dir = lspconfig.util.root_pattern("hie.yaml", "*.cabal", "stack.yaml", "cabal.project"),
+                    })
+                end,
+                gradle_ls = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.gradle_ls.setup({
                     })
                 end,
 

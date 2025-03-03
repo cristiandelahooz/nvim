@@ -39,7 +39,7 @@ autocmd({ "BufWritePre" }, {
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
-
+--[[
 autocmd('BufEnter', {
     group = delahozGroup,
     callback = function()
@@ -50,6 +50,7 @@ autocmd('BufEnter', {
         end
     end
 })
+--]]
 
 
 autocmd('LspAttach', {
