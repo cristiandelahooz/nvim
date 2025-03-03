@@ -2,7 +2,6 @@ require("hozyes.remap")
 require("hozyes.lazy_init")
 require("hozyes.set")
 
-
 local augroup = vim.api.nvim_create_augroup
 local delahozGroup = augroup('delahoz', {})
 
@@ -48,7 +47,7 @@ autocmd('BufEnter', {
         else
             vim.cmd.colorscheme("rose-pine")
         end
-    end
+   end
 })
 --]]
 
@@ -59,7 +58,7 @@ autocmd('LspAttach', {
         local opts = { buffer = e.buf }
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set("n", "H", function() vim.lsp.buf.hover() end, opts)
-        vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+        vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, opts)
         vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
         vim.keymap.set("n", "<leader>of", function() vim.diagostic.open_float() end, opts)
         vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
@@ -70,7 +69,3 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
     end
 })
-
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
